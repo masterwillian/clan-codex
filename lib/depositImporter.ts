@@ -126,9 +126,13 @@ export function parseDepositHtml(rawHtml: string): DepositImportResult {
   } else {
     format = "team-grid";
 
-    const gridCards = Array.from(document.querySelectorAll('button[title]')).filter((card) => {
+    // O STORAGE do jogo também pode renderizar os Pokémon do time acima do Box.
+    // Quando .team-boxscroll existe, limitamos a leitura ao Box para não contar
+    // o mesmo Pokémon duas vezes. Versões/idiomas diferentes usam Nv ou Lv.
+    const gridScope = document.querySelector(".team-boxscroll") ?? document;
+    const gridCards = Array.from(gridScope.querySelectorAll('button[title]')).filter((card) => {
       const title = card.getAttribute("title") ?? "";
-      return /\sNv\d+\s*$/i.test(title) && Boolean(card.querySelector('img[src*="/sprites/"]'));
+      return /\s(?:Nv|Lv)\.?\s*\d+\s*$/i.test(title) && Boolean(card.querySelector('img[src*="/sprites/"]'));
     });
 
     if (gridCards.length === 0) {
@@ -139,7 +143,7 @@ export function parseDepositHtml(rawHtml: string): DepositImportResult {
 
     for (const card of gridCards) {
       const title = card.getAttribute("title") ?? "";
-      const match = title.match(/^(.*?)\s+Nv\d+\s*$/i);
+      const match = title.match(/^(.*?)\s+(?:Nv|Lv)\.?\s*\d+\s*$/i);
       const name = match?.[1]?.trim() ?? "";
       const rarity = rarityFromGridCard(card);
 
