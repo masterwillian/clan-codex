@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import PendingTradesPanel from "@/components/PendingTradesPanel";
 import TradeHistoryPanel from "@/components/TradeHistoryPanel";
 import { rarities } from "@/lib/mockData";
+import { canRequestRarity } from "@/lib/tradeRules";
 import type { MatchItem, Player, PokemonEntry, Rarity, TradeView } from "@/types";
 
 type DeliveryGroup = {
@@ -266,7 +267,7 @@ function GiveDetails({ me, group, onCreateTrade, onBack }: { me: Player; group: 
                   const match = byRarity.get(rarity.key) ?? null;
                   const receiverCompleted = Boolean(receiverPokemon?.codex[rarity.key]);
                   const receiverHasInventory = !receiverCompleted && (receiverPokemon?.available[rarity.key] ?? 0) > 0;
-                  const requested = Boolean(receiverPokemon?.need[rarity.key]);
+                  const requested = Boolean(receiverPokemon && canRequestRarity(receiverPokemon, rarity.key));
                   const senderTotal = mine?.available[rarity.key] ?? 0;
                   const senderProtected = Boolean(mine && !mine.codex[rarity.key] && senderTotal > 0);
                   return (
@@ -346,7 +347,7 @@ function ReceiveDetails({ me, group, onBack }: { me: Player; group: DeliveryGrou
                   const match = byRarity.get(rarity.key) ?? null;
                   const receiverCompleted = Boolean(mine?.codex[rarity.key]);
                   const receiverHasInventory = !receiverCompleted && (mine?.available[rarity.key] ?? 0) > 0;
-                  const requested = Boolean(mine?.need[rarity.key]);
+                  const requested = Boolean(mine && canRequestRarity(mine, rarity.key));
                   const senderTotal = senderPokemon?.available[rarity.key] ?? 0;
                   const senderProtected = Boolean(senderPokemon && !senderPokemon.codex[rarity.key] && senderTotal > 0);
                   return (

@@ -9,7 +9,7 @@ export type PokemonEntry = {
   sprite: string;
   /** Estoque total importado do depósito. A quantidade realmente trocável é calculada pelas regras do Codex e pelas trocas pendentes. */
   available: RarityNumbers;
-  /** Cada raridade é uma necessidade booleana: no máximo 1 unidade. */
+  /** Necessidade derivada automaticamente: true quando falta no Codex e o depósito está zerado. */
   need: RarityFlags;
   codex: RarityFlags;
 };

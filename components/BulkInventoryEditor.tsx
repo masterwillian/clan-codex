@@ -29,44 +29,16 @@ export default function BulkInventoryEditor({ player, onPokemonChange, onClose }
     onPokemonChange({ ...entry, available: { ...entry.available, [rarity]: normalized } });
   };
 
-  const toggleNeed = (entry: PokemonEntry, rarity: Rarity) => {
-    if (!canRequestRarity(entry, rarity)) return;
-    onPokemonChange({ ...entry, need: { ...entry.need, [rarity]: !entry.need[rarity] } });
-  };
-
-  const fillAllNeeds = () => {
-    const rows = player.groups.flatMap((group) => group.pokemon);
-
-    for (const entry of rows) {
-      const nextNeed = { ...entry.need };
-      let changed = false;
-
-      for (const rarity of rarities) {
-        const shouldNeed = canRequestRarity(entry, rarity.key);
-        if (nextNeed[rarity.key] !== shouldNeed) {
-          nextNeed[rarity.key] = shouldNeed;
-          changed = true;
-        }
-      }
-
-      if (changed) {
-        onPokemonChange({ ...entry, need: nextNeed });
-      }
-    }
-  };
 
   return (
     <section className="bulk-editor">
       <div className="bulk-editor-head">
         <div>
           <span>Edição rápida</span>
-          <h2>Depósito e necessidades</h2>
-          <p>Atualize o estoque total e as necessidades sem abrir grupo por grupo. Nada é enviado enquanto você edita; confirme tudo no botão “Salvar alterações”.</p>
+          <h2>Depósito e necessidades automáticas</h2>
+          <p>Atualize apenas o estoque. “Preciso” é calculado sozinho pelo depósito + Codex. Nada é enviado enquanto você edita; confirme tudo no botão “Salvar alterações”.</p>
         </div>
         <div className="bulk-editor-head-actions">
-          <button type="button" className="bulk-fill-needs-button" onClick={fillAllNeeds}>
-            Preencher todos que eu preciso
-          </button>
           <button type="button" className="bulk-close-button" onClick={onClose}>Fechar ×</button>
         </div>
       </div>
@@ -106,21 +78,21 @@ export default function BulkInventoryEditor({ player, onPokemonChange, onClose }
                 {rarities.map((rarity) => {
                   const completed = entry.codex[rarity.key];
                   const owned = !completed && entry.available[rarity.key] > 0;
-                  const locked = completed || owned;
-                  const title = completed
-                    ? `${rarity.label} já está concluído no Codex.`
-                    : owned
-                      ? `Você já possui ${entry.available[rarity.key]} no depósito; 1 unidade está protegida para o Codex.`
-                      : undefined;
+                  const automaticNeed = canRequestRarity(entry, rarity.key);
+                  const title = automaticNeed
+                    ? `${rarity.label}: Preciso automático — não está no Codex e o depósito está zerado.`
+                    : completed
+                      ? `${rarity.label} já está concluído no Codex.`
+                      : `Você já possui ${entry.available[rarity.key]} no depósito; 1 unidade está protegida para o Codex.`;
                   return (
                     <td key={`need-${rarity.key}`}>
                       <label
-                        className={`bulk-need ${!locked && entry.need[rarity.key] ? "bulk-need--on" : ""} ${locked ? "bulk-need--locked" : ""}`}
+                        className={`bulk-need bulk-need--auto ${automaticNeed ? "bulk-need--on" : "bulk-need--locked"}`}
                         style={{ "--rarity": rarity.color } as React.CSSProperties}
                         title={title}
                       >
-                        <input type="checkbox" checked={!locked && entry.need[rarity.key]} disabled={locked} onChange={() => toggleNeed(entry, rarity.key)} />
-                        <span>{locked ? "🔒" : entry.need[rarity.key] ? "✓" : ""}</span>
+                        <input type="checkbox" checked={automaticNeed} disabled readOnly />
+                        <span>{automaticNeed ? "✓" : completed || owned ? "🔒" : ""}</span>
                       </label>
                     </td>
                   );

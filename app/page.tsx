@@ -92,7 +92,7 @@ function allPokemon(groups: CodexGroupType[]) {
 }
 
 function groupMatchesSpecial(group: CodexGroupType, filter: Filter) {
-  if (filter === "needed") return group.pokemon.some((pokemon) => rarities.some((rarity) => pokemon.need[rarity.key] && canRequestRarity(pokemon, rarity.key)));
+  if (filter === "needed") return group.pokemon.some((pokemon) => rarities.some((rarity) => canRequestRarity(pokemon, rarity.key)));
   if (filter === "available") return group.pokemon.some((pokemon) => rarities.some((rarity) => pokemon.available[rarity.key] > 0));
   return true;
 }
@@ -356,12 +356,12 @@ export default function Home() {
     const userId = session?.user.id;
     if (!userId) return;
 
-    // Uma raridade já concluída no Codex nunca pode permanecer marcada como
-    // “Preciso”. Isso vale para edição manual e para os importadores.
+    // “Preciso” é automático: se a raridade não está no Codex e o depósito
+    // está zerado, ela é necessária. Qualquer edição/importação recalcula isso.
     const sanitized: PokemonEntry = {
       ...next,
       need: Object.fromEntries(
-        rarities.map((rarity) => [rarity.key, canRequestRarity(next, rarity.key) ? next.need[rarity.key] : false]),
+        rarities.map((rarity) => [rarity.key, canRequestRarity(next, rarity.key)]),
       ) as RarityFlags,
     };
 
@@ -406,8 +406,8 @@ export default function Home() {
       rarity: rarity.key,
       quantity: pokemon.available[rarity.key],
       available_quantity: pokemon.available[rarity.key],
-      wanted_quantity: pokemon.need[rarity.key] && canRequestRarity(pokemon, rarity.key) ? 1 : 0,
-      wanted: pokemon.need[rarity.key] && canRequestRarity(pokemon, rarity.key),
+      wanted_quantity: canRequestRarity(pokemon, rarity.key) ? 1 : 0,
+      wanted: canRequestRarity(pokemon, rarity.key),
     })));
 
     const progressRows = changedPokemon.flatMap((pokemon) => rarities.map((rarity) => ({
@@ -581,7 +581,7 @@ export default function Home() {
         if (!theirs) continue;
         for (const rarity of rarities) {
           const free = freeAvailable(sender, mine.id, rarity.key);
-          if (free > 0 && theirs.need[rarity.key] && canRequestRarity(theirs, rarity.key)) {
+          if (free > 0 && canRequestRarity(theirs, rarity.key)) {
             out.push({
               playerId: receiver.id,
               nickname: receiver.nickname,
@@ -647,13 +647,13 @@ export default function Home() {
     rarities: rarities.map((rarity) => ({
       ...rarity,
       available: players.reduce((sum, player) => sum + freeAvailable(player, id, rarity.key), 0),
-      needs: players.reduce((sum, player) => sum + (() => { const pokemon = findPokemon(player, id); return pokemon?.need[rarity.key] && canRequestRarity(pokemon, rarity.key) ? 1 : 0; })(), 0),
+      needs: players.reduce((sum, player) => sum + (() => { const pokemon = findPokemon(player, id); return pokemon && canRequestRarity(pokemon, rarity.key) ? 1 : 0; })(), 0),
     })),
   })).filter((row) => normalize(row.name).includes(normalize(search)));
 
   const clanTotals = {
     available: players.reduce((sum, player) => sum + allPokemon(player.groups).reduce((pokemonSum, entry) => pokemonSum + rarities.reduce((raritySum, rarity) => raritySum + freeAvailable(player, entry.id, rarity.key), 0), 0), 0),
-    needs: players.reduce((sum, player) => sum + allPokemon(player.groups).reduce((pokemonSum, entry) => pokemonSum + rarities.reduce((raritySum, rarity) => raritySum + (entry.need[rarity.key] && canRequestRarity(entry, rarity.key) ? 1 : 0), 0), 0), 0),
+    needs: players.reduce((sum, player) => sum + allPokemon(player.groups).reduce((pokemonSum, entry) => pokemonSum + rarities.reduce((raritySum, rarity) => raritySum + (canRequestRarity(entry, rarity.key) ? 1 : 0), 0), 0), 0),
     completedTrades: tradeViews.filter((trade) => trade.status === "completed").length,
   };
 
@@ -755,7 +755,7 @@ export default function Home() {
           <span className="hero-kicker">CODEX COLABORATIVO · {clan.name}</span>
           <h1>{tab === "profile" ? "Meu Codex" : tab === "clan" ? "Clã" : tab === "deliveries" ? "Central de entregas" : ally ? `Codex de ${ally.nickname}` : "Aliados"}</h1>
           <p>{tab === "profile"
-            ? `Depósito mostra o estoque total. Se uma raridade ainda não está no Codex, 1 unidade fica protegida e não entra nas trocas. “Preciso” só pode ser marcado quando você não tem aquela raridade no depósito. Último salvamento ${timeAgo(me.updatedAt)}.`
+            ? `Depósito mostra o estoque total. “Preciso” é automático: se a raridade não está no Codex e o depósito está zerado, o sistema marca que você precisa. Se entrar uma cópia ou o Codex for concluído, a necessidade some sozinha. Último salvamento ${timeAgo(me.updatedAt)}.`
             : tab === "clan"
               ? "Visão coletiva de disponíveis, necessidades, entregas confirmadas e administração do clã."
               : tab === "deliveries"
@@ -810,7 +810,7 @@ export default function Home() {
         <div className="layout">
           <section className="codex-list">
             <div className="section-toolbar section-toolbar--actions">
-              <div><b>Kanto · {profileGroups.length} grupos</b><span>I / R / E / L = estoque total do depósito. Quando ainda falta registrar a raridade no Codex, 1 unidade fica protegida; “Preciso” também é bloqueado se você já possui uma cópia.</span></div>
+              <div><b>Kanto · {profileGroups.length} grupos</b><span>I / R / E / L = estoque total do depósito. “Preciso” é calculado automaticamente pelo Codex + depósito; quando falta registrar uma raridade e existe estoque, 1 unidade fica protegida.</span></div>
               <button type="button" className="quick-edit-button" onClick={() => setBulkEditOpen((value) => !value)}>
                 {bulkEditOpen ? "Fechar edição rápida" : "Edição rápida"}
               </button>

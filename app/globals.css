@@ -236,3 +236,7 @@ button { color: inherit; }
 .bulk-close-button{border:1px solid #334d66!important;background:#0b1724!important;color:#91a2b6!important}
 .bulk-close-button:hover{border-color:#4a6783!important;color:#d7e7f7!important}
 @media (max-width:760px){.bulk-editor-head{flex-direction:column}.bulk-editor-head-actions{width:100%;justify-content:stretch}.bulk-editor-head-actions button{flex:1}}
+
+/* v5.9 · “Preciso” automático: indicadores são informativos, não clicáveis. */
+.need-check--auto,.bulk-need--auto{cursor:default}
+.need-check--auto input,.bulk-need--auto input{cursor:default}

@@ -40,11 +40,12 @@ export function hydratePlayer(
         const inventory = inventoryMap.get(`${pokemon.id}:${rarity.key}`);
         if (inventory) {
           pokemon.available[rarity.key] = inventory.available_quantity;
-          pokemon.need[rarity.key] = Boolean(inventory.wanted);
         }
         const progress = progressMap.get(`${pokemon.id}:${rarity.key}`);
         pokemon.codex[rarity.key] = Boolean(progress?.completed);
-        if (pokemon.codex[rarity.key]) pokemon.need[rarity.key] = false;
+        // “Preciso” é derivado automaticamente do estado real: se ainda não
+        // está no Codex e o depósito está zerado, a raridade é necessária.
+        pokemon.need[rarity.key] = !pokemon.codex[rarity.key] && pokemon.available[rarity.key] <= 0;
       }
     }
   }

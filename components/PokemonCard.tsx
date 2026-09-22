@@ -22,10 +22,6 @@ export default function PokemonCard({ pokemon, editable = false, onChange, helpe
     onChange({ ...pokemon, available: { ...pokemon.available, [rarity]: normalized } });
   };
 
-  const toggleNeed = (rarity: Rarity) => {
-    if (!editable || !onChange || !canRequestRarity(pokemon, rarity)) return;
-    onChange({ ...pokemon, need: { ...pokemon.need, [rarity]: !pokemon.need[rarity] } });
-  };
 
   const toggleCodex = (rarity: Rarity) => {
     if (!editable || !onChange) return;
@@ -36,7 +32,7 @@ export default function PokemonCard({ pokemon, editable = false, onChange, helpe
   };
 
   const canHelp = helperPokemon
-    ? rarities.some(({ key }) => helperPokemon.available[key] > 0 && pokemon.need[key] && canRequestRarity(pokemon, key))
+    ? rarities.some(({ key }) => helperPokemon.available[key] > 0 && canRequestRarity(pokemon, key))
     : false;
 
   return (
@@ -105,35 +101,35 @@ export default function PokemonCard({ pokemon, editable = false, onChange, helpe
             {rarities.map((rarity) => {
               const completed = pokemon.codex[rarity.key];
               const owned = !completed && pokemon.available[rarity.key] > 0;
-              const locked = completed || owned;
-              const reason = completed ? "Já tem" : owned ? "No depósito" : "Preciso";
-              const title = completed
-                ? `${rarity.label} já está concluído no Codex.`
-                : owned
-                  ? `Você já possui ${pokemon.available[rarity.key]} ${rarity.label} no depósito. Use a cópia protegida no Codex antes de pedir outra.`
-                  : undefined;
+              const automaticNeed = canRequestRarity(pokemon, rarity.key);
+              const reason = completed ? "Já tem" : owned ? "No depósito" : "Preciso auto";
+              const title = automaticNeed
+                ? `${rarity.label}: Preciso automático — não está no Codex e o depósito está zerado.`
+                : completed
+                  ? `${rarity.label} já está concluído no Codex.`
+                  : `Você já possui ${pokemon.available[rarity.key]} ${rarity.label} no depósito. Use a cópia protegida no Codex antes de pedir outra.`;
               return (
                 <label
                   key={rarity.key}
-                  className={`need-check ${!locked && pokemon.need[rarity.key] ? "need-check--on" : ""} ${locked ? "need-check--locked" : ""}`}
+                  className={`need-check need-check--auto ${automaticNeed ? "need-check--on" : "need-check--locked"}`}
                   style={{ "--rarity": rarity.color } as React.CSSProperties}
                   title={title}
                 >
-                  <input type="checkbox" checked={!locked && pokemon.need[rarity.key]} disabled={locked} onChange={() => toggleNeed(rarity.key)} />
-                  <b>{locked ? "🔒" : rarity.short}</b>
+                  <input type="checkbox" checked={automaticNeed} disabled readOnly />
+                  <b>{automaticNeed ? rarity.short : "🔒"}</b>
                   <span>{reason}</span>
                 </label>
               );
             })}
           </div>
-          <p className="trade-hint">Você só pode pedir uma raridade que ainda falta no Codex e que esteja zerada no seu depósito.</p>
+          <p className="trade-hint">Automático: tudo que ainda falta no Codex e está zerado no depósito entra como “Preciso”.</p>
         </details>
       )}
 
       {helperPokemon && canHelp && (
         <div className="match-note">
           Você pode ajudar: {rarities
-            .filter(({ key }) => helperPokemon.available[key] > 0 && pokemon.need[key] && canRequestRarity(pokemon, key))
+            .filter(({ key }) => helperPokemon.available[key] > 0 && canRequestRarity(pokemon, key))
             .map(({ key, label }) => `1 ${label} (${helperPokemon.available[key]} livre${helperPokemon.available[key] === 1 ? "" : "s"})`)
             .join(" · ")}
         </div>
