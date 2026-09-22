@@ -226,3 +226,13 @@ button { color: inherit; }
 .rarity-protected-note{grid-column:1/-1;display:block;margin-top:1px;color:#d7a948!important;font-size:5.5px!important;line-height:1.1;white-space:nowrap;text-align:center;letter-spacing:0}.bulk-protected-note{display:block;margin-top:3px;color:#d7a948;font-size:6px;white-space:nowrap;text-align:center}.delivery-protected-badge{font-style:normal;margin-top:1px;color:#d8a844;font-size:5.3px;white-space:nowrap}.delivery-rarity-option--active .delivery-protected-badge{color:#efbe58}.need-check--locked[title*="depósito"],.bulk-need--locked[title*="depósito"]{border-style:dashed}
 
 .pokemon-inventory-summary{display:flex;align-items:center;justify-content:space-between;gap:4px;margin-top:3px;padding:2px 3px;border-radius:3px;background:#091521;color:#71839a;font-size:5.8px}.pokemon-inventory-summary span{white-space:nowrap}.pokemon-inventory-summary span b{color:#e9f4ff;font-size:6.5px}.pokemon-inventory-summary em{font-style:normal;color:#d8a844;white-space:nowrap}.pokemon-inventory-summary .pokemon-inventory-summary--clear{color:#52667a}
+
+
+/* ── V5.8.1: preencher automaticamente todas as necessidades válidas ── */
+.bulk-editor-head-actions{align-self:flex-start;display:flex!important;align-items:center;justify-content:flex-end;gap:7px;flex:0 0 auto}
+.bulk-editor-head-actions button{border-radius:5px;padding:6px 9px;font-size:7px;font-weight:900;cursor:pointer;white-space:nowrap;text-transform:uppercase;letter-spacing:.04em}
+.bulk-fill-needs-button{border:1px solid #2c8c69!important;background:linear-gradient(180deg,#103727,#0b251d)!important;color:#70f0ad!important;box-shadow:inset 0 0 12px #31d98512}
+.bulk-fill-needs-button:hover{border-color:#4edb9b!important;background:linear-gradient(180deg,#124632,#0d2f24)!important;color:#b6ffd7!important}
+.bulk-close-button{border:1px solid #334d66!important;background:#0b1724!important;color:#91a2b6!important}
+.bulk-close-button:hover{border-color:#4a6783!important;color:#d7e7f7!important}
+@media (max-width:760px){.bulk-editor-head{flex-direction:column}.bulk-editor-head-actions{width:100%;justify-content:stretch}.bulk-editor-head-actions button{flex:1}}

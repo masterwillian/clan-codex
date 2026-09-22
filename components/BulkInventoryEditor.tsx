@@ -34,6 +34,27 @@ export default function BulkInventoryEditor({ player, onPokemonChange, onClose }
     onPokemonChange({ ...entry, need: { ...entry.need, [rarity]: !entry.need[rarity] } });
   };
 
+  const fillAllNeeds = () => {
+    const rows = player.groups.flatMap((group) => group.pokemon);
+
+    for (const entry of rows) {
+      const nextNeed = { ...entry.need };
+      let changed = false;
+
+      for (const rarity of rarities) {
+        const shouldNeed = canRequestRarity(entry, rarity.key);
+        if (nextNeed[rarity.key] !== shouldNeed) {
+          nextNeed[rarity.key] = shouldNeed;
+          changed = true;
+        }
+      }
+
+      if (changed) {
+        onPokemonChange({ ...entry, need: nextNeed });
+      }
+    }
+  };
+
   return (
     <section className="bulk-editor">
       <div className="bulk-editor-head">
@@ -42,7 +63,12 @@ export default function BulkInventoryEditor({ player, onPokemonChange, onClose }
           <h2>Depósito e necessidades</h2>
           <p>Atualize o estoque total e as necessidades sem abrir grupo por grupo. Nada é enviado enquanto você edita; confirme tudo no botão “Salvar alterações”.</p>
         </div>
-        <button type="button" onClick={onClose}>Fechar ×</button>
+        <div className="bulk-editor-head-actions">
+          <button type="button" className="bulk-fill-needs-button" onClick={fillAllNeeds}>
+            Preencher todos que eu preciso
+          </button>
+          <button type="button" className="bulk-close-button" onClick={onClose}>Fechar ×</button>
+        </div>
       </div>
 
       <div className="bulk-search">
