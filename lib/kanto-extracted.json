@@ -1,0 +1,1708 @@
+[
+  {
+    "id": 1,
+    "attribute": "Velocidade",
+    "short": "SPD",
+    "color": "#16d7ff",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 63,
+        "name": "Abra",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 93,
+        "name": "Haunter",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 17,
+        "name": "Pidgeotto",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 142,
+        "name": "Aerodactyl",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 107,
+        "name": "Hitmonchan",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 16,
+        "name": "Pidgey",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 65,
+        "name": "Alakazam",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 106,
+        "name": "Hitmonlee",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 25,
+        "name": "Pikachu",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 24,
+        "name": "Arbok",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 97,
+        "name": "Hypno",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 112,
+        "name": "Rhydon",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 59,
+        "name": "Arcanine",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 2,
+        "name": "Ivysaur",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 127,
+        "name": "Pinsir",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 1.33,
+    "pokemon": [
+      {
+        "id": 15,
+        "name": "Beedrill",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 39,
+        "name": "Jigglypuff",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 60,
+        "name": "Poliwag",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "attribute": "Velocidade",
+    "short": "SPD",
+    "color": "#16d7ff",
+    "bonus": 1.33,
+    "pokemon": [
+      {
+        "id": 69,
+        "name": "Bellsprout",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 124,
+        "name": "Jynx",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 61,
+        "name": "Poliwhirl",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 1.0,
+    "pokemon": [
+      {
+        "id": 9,
+        "name": "Blastoise",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 140,
+        "name": "Kabuto",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 62,
+        "name": "Poliwrath",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 1,
+        "name": "Bulbasaur",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 141,
+        "name": "Kabutops",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 77,
+        "name": "Ponyta",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 4.0,
+    "pokemon": [
+      {
+        "id": 12,
+        "name": "Butterfree",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      },
+      {
+        "id": 64,
+        "name": "Kadabra",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      },
+      {
+        "id": 57,
+        "name": "Primeape",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 4.0,
+    "pokemon": [
+      {
+        "id": 10,
+        "name": "Caterpie",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      },
+      {
+        "id": 14,
+        "name": "Kakuna",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      },
+      {
+        "id": 54,
+        "name": "Psyduck",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 88,
+        "name": "Grimer",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 89,
+        "name": "Muk",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 108,
+        "name": "Lickitung",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 4,
+        "name": "Charmander",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 99,
+        "name": "Kingler",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 78,
+        "name": "Rapidash",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 5,
+        "name": "Charmeleon",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 109,
+        "name": "Koffing",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 20,
+        "name": "Raticate",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 36,
+        "name": "Clefable",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 98,
+        "name": "Krabby",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 19,
+        "name": "Rattata",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 35,
+        "name": "Clefairy",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 131,
+        "name": "Lapras",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 111,
+        "name": "Rhyhorn",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 32,
+        "name": "Nidoran Male",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 56,
+        "name": "Mankey",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 71,
+        "name": "Victreebel",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 91,
+        "name": "Cloyster",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 68,
+        "name": "Machamp",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 28,
+        "name": "Sandslash",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 4.0,
+    "pokemon": [
+      {
+        "id": 104,
+        "name": "Cubone",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      },
+      {
+        "id": 67,
+        "name": "Machoke",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      },
+      {
+        "id": 123,
+        "name": "Scyther",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": true,
+          "legendary": true
+        }
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 87,
+        "name": "Dewgong",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 66,
+        "name": "Machop",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 86,
+        "name": "Seel",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 21,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 85,
+        "name": "Dodrio",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 147,
+        "name": "Dratini",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 149,
+        "name": "Dragonite",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 22,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 261,
+        "name": "Poochyena",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 27,
+        "name": "Sandshrew",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 75,
+        "name": "Graveler",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 23,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 84,
+        "name": "Doduo",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 126,
+        "name": "Magmar",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 79,
+        "name": "Slowpoke",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 24,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 80,
+        "name": "Slowbro",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 90,
+        "name": "Shellder",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 102,
+        "name": "Exeggcute",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 25,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 148,
+        "name": "Dragonair",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 82,
+        "name": "Magneton",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 143,
+        "name": "Snorlax",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 26,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 1.33,
+    "pokemon": [
+      {
+        "id": 114,
+        "name": "Tangela",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 6,
+        "name": "Charizard",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 81,
+        "name": "Magnemite",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 27,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 1.33,
+    "pokemon": [
+      {
+        "id": 72,
+        "name": "Tentacool",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 73,
+        "name": "Tentacruel",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 21,
+        "name": "Spearow",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 28,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 1.33,
+    "pokemon": [
+      {
+        "id": 96,
+        "name": "Drowzee",
+        "codex": {
+          "uncommon": true,
+          "rare": true,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 105,
+        "name": "Marowak",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 7,
+        "name": "Squirtle",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 29,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 51,
+        "name": "Dugtrio",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 52,
+        "name": "Meowth",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 121,
+        "name": "Starmie",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 30,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 23,
+        "name": "Ekans",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 11,
+        "name": "Metapod",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 120,
+        "name": "Staryu",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 31,
+    "attribute": "Velocidade",
+    "short": "SPD",
+    "color": "#16d7ff",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 26,
+        "name": "Raichu",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 41,
+        "name": "Zubat",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 50,
+        "name": "Diglett",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 32,
+    "attribute": "Velocidade",
+    "short": "SPD",
+    "color": "#16d7ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 53,
+        "name": "Persian",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 101,
+        "name": "Electrode",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 125,
+        "name": "Electabuzz",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 33,
+    "attribute": "Velocidade",
+    "short": "SPD",
+    "color": "#16d7ff",
+    "bonus": 0.5,
+    "pokemon": [
+      {
+        "id": 128,
+        "name": "Tauros",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 215,
+        "name": "Sneasel",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 35,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 103,
+        "name": "Exeggutor",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 34,
+        "name": "Nidoking",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 49,
+        "name": "Venomoth",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 36,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 83,
+        "name": "Farfetchd",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 31,
+        "name": "Nidoqueen",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 48,
+        "name": "Venonat",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 37,
+    "attribute": "Ataque",
+    "short": "ATK",
+    "color": "#ff4e55",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 22,
+        "name": "Fearow",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 29,
+        "name": "Nidoran Female",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 3,
+        "name": "Venusaur",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 39,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 92,
+        "name": "Gastly",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 30,
+        "name": "Nidorina",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 45,
+        "name": "Vileplume",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 40,
+    "attribute": "Velocidade",
+    "short": "SPD",
+    "color": "#16d7ff",
+    "bonus": 0.0,
+    "pokemon": [
+      {
+        "id": 94,
+        "name": "Gengar",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 33,
+        "name": "Nidorino",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 100,
+        "name": "Voltorb",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 41,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 74,
+        "name": "Geodude",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 38,
+        "name": "Ninetales",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 37,
+        "name": "Vulpix",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 42,
+    "attribute": "HP",
+    "short": "HP",
+    "color": "#26d978",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 44,
+        "name": "Gloom",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 43,
+        "name": "Oddish",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 8,
+        "name": "Wartortle",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 43,
+    "attribute": "Defesa",
+    "short": "DEF",
+    "color": "#3eb9ff",
+    "bonus": 0.67,
+    "pokemon": [
+      {
+        "id": 42,
+        "name": "Golbat",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 95,
+        "name": "Onix",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 13,
+        "name": "Weedle",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 44,
+    "attribute": "Atq. Especial",
+    "short": "SATK",
+    "color": "#ca68ff",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 55,
+        "name": "Golduck",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 46,
+        "name": "Paras",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 70,
+        "name": "Weepinbell",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 45,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 76,
+        "name": "Golem",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 47,
+        "name": "Parasect",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 110,
+        "name": "Weezing",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  },
+  {
+    "id": 48,
+    "attribute": "Def. Especial",
+    "short": "SDEF",
+    "color": "#f2b72f",
+    "bonus": 0.33,
+    "pokemon": [
+      {
+        "id": 58,
+        "name": "Growlithe",
+        "codex": {
+          "uncommon": true,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 130,
+        "name": "Gyarados",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      },
+      {
+        "id": 18,
+        "name": "Pidgeot",
+        "codex": {
+          "uncommon": false,
+          "rare": false,
+          "epic": false,
+          "legendary": false
+        }
+      }
+    ]
+  }
+]

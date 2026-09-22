@@ -1,0 +1,80 @@
+CLAN CODEX v5.8 COMPLETO
+========================
+
+Esta pasta contém o projeto inteiro, incluindo:
+- Importar / Perfil / Clã / Aliados / Entregas
+- Salvamento manual em lote
+- Edição rápida
+- Importador automático do DEPÓSITO
+- Importador automático do CODEX
+- Cards de troca agrupados por jogador e por Pokémon
+- Proteção automática de estoque para o Codex
+- Supabase schema + migrations + seed
+- APIs de nickname e reset de senha
+
+IMPORTANTE SOBRE O .env.local
+-----------------------------
+O ZIP não inclui suas chaves do Supabase.
+Copie o .env.local da pasta antiga para a raiz desta pasta nova.
+
+COMO RODAR NO WINDOWS
+---------------------
+1. Extraia este ZIP em uma pasta nova.
+2. Copie seu .env.local antigo para esta pasta.
+3. Abra CMD nesta pasta.
+4. Rode:
+
+   npm install
+   npm run build
+   npm run dev
+
+5. Abra http://localhost:3000
+
+REGRA NOVA DA v5.8
+------------------
+O número do depósito é sempre o estoque TOTAL.
+
+Se uma raridade ainda não foi concluída no Codex e existe pelo menos 1 unidade no depósito,
+1 unidade fica protegida para o próprio Codex.
+
+Fórmula:
+
+   estoque total - 1 protegido para Codex - entregas pendentes = realmente trocável
+
+Exemplos:
+- 1 unidade e ainda falta no Codex -> 0 trocáveis
+- 2 unidades e ainda falta no Codex -> 1 trocável
+- 154 unidades e ainda falta no Codex -> 153 trocáveis
+- depois de concluir aquela raridade no Codex -> não há mais essa reserva de 1
+
+Também não é possível marcar "Preciso" quando:
+- a raridade já está concluída no Codex; OU
+- já existe pelo menos 1 cópia daquela raridade no depósito.
+
+Isso evita pedir um Pokémon que você já possui e evita doar a última cópia que ainda precisa entrar no seu Codex.
+
+IMPORTADORES
+------------
+Importar > Sincronizar depósito
+- Cola o HTML do depósito.
+- Conta I/R/E/L automaticamente.
+- Mantém o número TOTAL no estoque.
+- Se uma raridade passar a ter estoque, uma necessidade incompatível é removida automaticamente.
+
+Importar > Sincronizar Codex
+- Cola o HTML do Codex.
+- Lê o progresso de cada Pokémon.
+- Converte o maior nível para I/R/E/L cumulativo.
+- HTML parcial continua seguro: só altera os Pokémon presentes.
+
+Depois de qualquer importação, clique em "Salvar alterações".
+
+BANCO EXISTENTE
+---------------
+Se você já estava usando a v5.7, rode SOMENTE:
+
+   supabase/migration_v5_8.sql
+
+uma vez no SQL Editor do Supabase.
+
+Não rode schema.sql novamente em um banco já existente.

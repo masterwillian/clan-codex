@@ -1,0 +1,27 @@
+CLAN CODEX v5.6 — MUDANCAS DE INTERFACE
+=========================================
+
+1. SINCRONIZAR NO TOPO
+- Importar Depósito e Importar Codex saíram da aba Perfil.
+- Novo botão SINCRONIZAR ao lado do estado Salvo/Não salvo.
+- O botão abre uma central com duas opções: Depósito e Codex.
+- A aplicação continua indo primeiro para o rascunho; o Supabase só recebe ao clicar em Salvar alterações.
+
+2. PERFIL MAIS LIMPO
+- A barra do Codex mantém apenas Edição rápida.
+- O painel lateral Matches atuais agora mostra uma linha/card por jogador.
+- Cada card informa quantas trocas estão disponíveis com aquela pessoa.
+- Clicar no jogador abre diretamente os detalhes na aba Entregas.
+
+3. ENTREGAS AGRUPADAS POR JOGADOR
+- Entregar e Receber mostram primeiro cards compactos dos aliados.
+- A lista completa de Pokémon só aparece depois que o jogador é escolhido.
+- Dentro do detalhe continuam disponíveis seleção, quantidade livre, raridade, Copiar lista e Registrar entrega.
+- Há botão Voltar para retornar à lista de jogadores.
+- A busca continua aceitando jogador, Pokémon ou raridade.
+
+4. CONTADORES
+- Os números Entregar/Receber continuam mostrando o total de matches de Pokémon/raridade.
+- A tela também informa quantos aliados possuem trocas disponíveis.
+
+Nenhuma migration nova de Supabase é necessária para a v5.6.

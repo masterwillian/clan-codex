@@ -1,0 +1,179 @@
+.panel {
+  border: 1px solid rgba(86, 246, 161, .28);
+  background: rgba(7, 16, 28, .78);
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+  box-shadow: 0 14px 40px rgba(0, 0, 0, .18);
+}
+
+.header, .actions, .applyBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.header > div, .applyBox > div {
+  display: grid;
+  gap: 4px;
+}
+
+.header b, .applyBox b {
+  font-size: 15px;
+}
+
+.header span, .actions span, .applyBox span, .meta {
+  color: var(--text-dim);
+  font-size: 12px;
+}
+
+.close, .primary, .apply {
+  border: 0;
+  border-radius: 10px;
+  padding: 9px 13px;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 800;
+}
+
+.close {
+  color: var(--text);
+  background: var(--surface-3);
+}
+
+.primary, .apply {
+  color: #07120c;
+  background: #56f6a1;
+}
+
+.primary:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 150px;
+  max-height: 280px;
+  resize: vertical;
+  margin: 14px 0 10px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: rgba(0, 0, 0, .18);
+  color: var(--text);
+  padding: 12px;
+  font: 11px/1.45 ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+.actions {
+  justify-content: flex-start;
+}
+
+.summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  margin: 16px 0 10px;
+}
+
+.summary > div {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background: var(--surface-2);
+}
+
+.summary b {
+  font-size: 19px;
+}
+
+.summary span {
+  color: var(--text-dim);
+  font-size: 11px;
+}
+
+.meta {
+  margin-bottom: 10px;
+}
+
+.tableWrap {
+  max-height: 330px;
+  overflow: auto;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.table th, .table td {
+  padding: 8px 10px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.table th:first-child, .table td:first-child {
+  text-align: left;
+}
+
+.table th {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--surface-3);
+}
+
+.table small {
+  color: var(--text-dim);
+}
+
+.ok {
+  color: #56f6a1;
+  font-weight: 800;
+}
+
+.warn, .warning {
+  color: #ffd05d;
+}
+
+.warning, .error, .success {
+  margin: 10px 0 0;
+  font-size: 12px;
+}
+
+.error {
+  color: #ff7a8a;
+}
+
+.success {
+  color: #56f6a1;
+}
+
+.applyBox {
+  margin-top: 12px;
+  padding: 12px;
+  border: 1px solid rgba(86, 246, 161, .2);
+  border-radius: 12px;
+  background: rgba(86, 246, 161, .05);
+}
+
+@media (max-width: 760px) {
+  .summary {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .header, .applyBox {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .close, .apply {
+    width: 100%;
+  }
+}

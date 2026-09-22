@@ -1,0 +1,24 @@
+CLAN CODEX v5.7
+
+INTERFACE
+- Importar passou para a navegação principal, antes de Perfil.
+- Removido o botão Sincronizar da área da conta.
+- Entregas agora agrupam as raridades dentro de um único card por Pokémon.
+- Cada card mostra I / R / E / L como botões.
+- Raridade concluída no Codex aparece com cadeado.
+- Raridade pedida e disponível fica selecionável.
+- Raridade não pedida fica desativada.
+
+REGRA DE NEGÓCIO
+- Não é possível marcar “Preciso” para uma raridade já concluída no Codex.
+- Ao concluir/importar uma raridade, qualquer “Preciso” antigo daquela raridade é removido.
+- Matches e totais do clã ignoram necessidades incompatíveis com o Codex.
+- migration_v5_7.sql reforça a mesma regra no Supabase e limpa dados antigos.
+
+ATUALIZAÇÃO DE V5.6
+1. Preserve o .env.local.
+2. Use este projeto completo.
+3. Rode supabase/migration_v5_7.sql UMA VEZ no SQL Editor.
+4. npm install
+5. npm run build
+6. npm run dev

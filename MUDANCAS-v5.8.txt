@@ -1,0 +1,17 @@
+CLAN CODEX v5.8
+
+NOVA REGRA DE PROTEÇÃO DO ESTOQUE
+
+- O número mostrado no Perfil continua sendo o estoque TOTAL importado do depósito.
+- Se a raridade ainda não foi concluída no Codex e existe pelo menos 1 unidade no depósito, 1 unidade fica automaticamente protegida para o próprio Codex.
+- Fórmula: estoque total - 1 protegido (quando aplicável) - entregas pendentes = realmente trocável.
+- Exemplos: 1 unidade -> 0 trocáveis; 2 -> 1 trocável; 154 -> 153 trocáveis.
+- Uma cópia protegida nunca gera "troca disponível".
+- O jogador não pode marcar "Preciso" se já concluiu a raridade OU se já possui pelo menos 1 cópia no depósito.
+- Importar o depósito limpa automaticamente pedidos incompatíveis.
+- Perfil e Edição rápida mostram "1 p/ Codex" nas raridades protegidas.
+- Entregas mostram estoque total, quantidade realmente livre e aviso quando existe unidade protegida.
+
+BANCO DE DADOS
+Rode supabase/migration_v5_8.sql UMA VEZ depois da migration_v5_7.sql.
+Ela limpa necessidades antigas, reforça a regra no inventory e protege create_trade/confirm_trade.
