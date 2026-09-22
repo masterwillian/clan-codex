@@ -20,6 +20,11 @@ type GroupedTradeItem = {
   items: TradeItem[];
 };
 
+type NumberedTradeItem = {
+  group: GroupedTradeItem;
+  cumulative: number;
+};
+
 const rarityOrder = new Map<string, number>(rarities.map((rarity, index) => [rarity.key, index]));
 
 function groupTradeItems(items: TradeItem[]): GroupedTradeItem[] {
@@ -48,6 +53,15 @@ function groupTradeItems(items: TradeItem[]): GroupedTradeItem[] {
     .sort((a, b) => a.pokemon.localeCompare(b.pokemon, "pt-BR"));
 }
 
+function numberGroupedItems(groups: GroupedTradeItem[]): NumberedTradeItem[] {
+  let cumulative = 0;
+
+  return groups.map((group) => {
+    cumulative += group.items.reduce((sum, item) => sum + item.quantity, 0);
+    return { group, cumulative };
+  });
+}
+
 function groupedItemLabel(group: GroupedTradeItem) {
   const quantities = new Set(group.items.map((item) => item.quantity));
 
@@ -57,6 +71,10 @@ function groupedItemLabel(group: GroupedTradeItem) {
   }
 
   return `${group.pokemon} · ${group.items.map((item) => `${item.quantity}× ${item.rarityLabel}`).join(", ")}`;
+}
+
+function numberedItemLabel(item: NumberedTradeItem) {
+  return `(${item.cumulative}) ${groupedItemLabel(item.group)}`;
 }
 
 export default function PendingTradesPanel({ userId, trades, busyId, onConfirm, onReject, onCancel }: Props) {
@@ -69,19 +87,23 @@ export default function PendingTradesPanel({ userId, trades, busyId, onConfirm, 
       {pending.map((trade) => {
         const incoming = trade.receiver_id === userId;
         const groupedItems = groupTradeItems(trade.items);
-        const summary = groupedItems.map((group) => groupedItemLabel(group)).join("\n");
+        const numberedItems = numberGroupedItems(groupedItems);
+        const totalPokemon = trade.items.reduce((sum, item) => sum + item.quantity, 0);
+        const summary = numberedItems.map((item) => numberedItemLabel(item)).join("\n");
 
         return (
           <article className="pending-trade" key={trade.id}>
             <div className="pending-trade-title">
               <b>{incoming ? `${trade.senderNickname} → você` : `você → ${trade.receiverNickname}`}</b>
               <small>
-                {groupedItems.length} espécie{groupedItems.length === 1 ? "" : "s"} · {trade.items.length} Pokémon
+                {groupedItems.length} espécie{groupedItems.length === 1 ? "" : "s"} · {totalPokemon} Pokémon
               </small>
             </div>
             <div className="pending-items">
-              {groupedItems.map((group) => (
-                <span key={`${trade.id}-${group.pokemonId}`}>{groupedItemLabel(group)}</span>
+              {numberedItems.map(({ group, cumulative }) => (
+                <span key={`${trade.id}-${group.pokemonId}`}>
+                  ({cumulative}) {groupedItemLabel(group)}
+                </span>
               ))}
             </div>
             <div className="pending-actions">
