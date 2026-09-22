@@ -76,6 +76,24 @@ function groupMatchesByPokemon(matches: MatchItem[]): PokemonMatchGroup[] {
   return Array.from(grouped.values()).sort((a, b) => a.pokemon.localeCompare(b.pokemon, "pt-BR"));
 }
 
+const rarityOrder = new Map<Rarity, number>(rarities.map((rarity, index) => [rarity.key, index]));
+
+function groupedMatchLines(matches: MatchItem[]) {
+  let cumulative = 0;
+
+  return groupMatchesByPokemon(matches).map((group) => {
+    const orderedMatches = [...group.matches].sort(
+      (a, b) =>
+        (rarityOrder.get(a.rarity) ?? Number.MAX_SAFE_INTEGER) -
+        (rarityOrder.get(b.rarity) ?? Number.MAX_SAFE_INTEGER),
+    );
+
+    cumulative += orderedMatches.reduce((sum, item) => sum + item.qty, 0);
+
+    return `(${cumulative}) 1× ${group.pokemon} · ${orderedMatches.map((item) => item.rarityLabel).join(", ")}`;
+  });
+}
+
 function PersonSummaryCard({
   group,
   mode,
@@ -211,7 +229,7 @@ function GiveDetails({ me, group, onCreateTrade, onBack }: { me: Player; group: 
 
   const register = async () => {
     if (!selectedItems.length) return;
-    const list = selectedItems.map((item) => `• 1× ${item.pokemon} ${item.rarityLabel}`).join("\n");
+    const list = groupedMatchLines(selectedItems).join("\n");
     if (!confirm(`Registrar entrega para ${group.player.nickname}?\n\n${list}\n\nOs itens ficarão reservados até a confirmação do destinatário.`)) return;
     setBusy(true);
     try {
@@ -225,7 +243,7 @@ function GiveDetails({ me, group, onCreateTrade, onBack }: { me: Player; group: 
   const copy = async () => {
     const lines = [
       `Posso entregar para ${group.player.nickname}:`,
-      ...group.matches.map((item) => `• 1× ${item.pokemon} ${item.rarityLabel}`),
+      ...groupedMatchLines(group.matches),
     ];
     await navigator.clipboard.writeText(lines.join("\n"));
     setCopied(true);
@@ -305,7 +323,7 @@ function ReceiveDetails({ me, group, onBack }: { me: Player; group: DeliveryGrou
   const copy = async () => {
     const lines = [
       `${group.player.nickname} pode me entregar:`,
-      ...group.matches.map((item) => `• 1× ${item.pokemon} ${item.rarityLabel}`),
+      ...groupedMatchLines(group.matches),
     ];
     await navigator.clipboard.writeText(lines.join("\n"));
     setCopied(true);
