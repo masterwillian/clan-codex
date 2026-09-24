@@ -9,6 +9,7 @@ import CodexGroup from "@/components/CodexGroup";
 import SupabaseSetupScreen from "@/components/SupabaseSetupScreen";
 import TradeHistoryPanel from "@/components/TradeHistoryPanel";
 import DeliveriesHub from "@/components/DeliveriesHub";
+import RankPanel from "@/components/RankPanel";
 import ClanAdminPanel from "@/components/ClanAdminPanel";
 import AccountSettings from "@/components/AccountSettings";
 import BulkInventoryEditor from "@/components/BulkInventoryEditor";
@@ -35,7 +36,7 @@ import {
   TradeView,
 } from "@/types";
 
-type Tab = "profile" | "clan" | "allies" | "deliveries";
+type Tab = "profile" | "clan" | "allies" | "deliveries" | "rank";
 type Filter = "all" | Rarity | "matches" | "helpme" | "needed" | "available";
 type SyncState = "saved" | "dirty" | "saving" | "error";
 
@@ -268,7 +269,7 @@ export default function Home() {
             fetchAllPages<TradeItemRow>((from, to) =>
               client
                 .from("trade_items")
-                .select("id,trade_id,pokemon_id,rarity,quantity")
+                .select("id,trade_id,pokemon_id,rarity,quantity,unit_price,rarity_multiplier,rank_points")
                 .in("trade_id", tradeIdChunk)
                 .order("trade_id", { ascending: true })
                 .order("id", { ascending: true })
@@ -544,6 +545,9 @@ export default function Home() {
       rarity: item.rarity,
       rarityLabel: rarityMeta.get(item.rarity)?.label ?? item.rarity,
       quantity: item.quantity,
+      unitPrice: Number(item.unit_price ?? 0),
+      rarityMultiplier: Number(item.rarity_multiplier ?? 1),
+      rankPoints: Number(item.rank_points ?? 0),
     })),
   }));
 
@@ -690,6 +694,7 @@ export default function Home() {
           <button className={tab === "clan" ? "active" : ""} onClick={() => { setTab("clan"); setFilter("all"); setDeliveryFocusPlayerId(""); }}>Clã</button>
           <button className={tab === "allies" ? "active" : ""} onClick={() => { setTab("allies"); setFilter("all"); setDeliveryFocusPlayerId(""); }}>Aliados</button>
           <button className={tab === "deliveries" ? "active" : ""} onClick={() => { setTab("deliveries"); setFilter("all"); setDeliveryFocusPlayerId(""); }}>Entregas{pendingForMe.length ? <span className="nav-badge">{pendingForMe.length}</span> : null}</button>
+          <button className={tab === "rank" ? "active" : ""} onClick={() => { setTab("rank"); setFilter("all"); setDeliveryFocusPlayerId(""); }}>Rank</button>
         </nav>
         <div className="account-zone">
           <span className={`sync-state sync-state--${syncState}`}>{syncState === "saving" ? "Salvando…" : syncState === "dirty" ? `${dirtyPokemonIds.length} não salvo${dirtyPokemonIds.length === 1 ? "" : "s"}` : syncState === "error" ? "Erro ao salvar" : "Salvo"}</span>
@@ -753,13 +758,15 @@ export default function Home() {
       <section className="hero codex-hero">
         <div className="hero-copy">
           <span className="hero-kicker">CODEX COLABORATIVO · {clan.name}</span>
-          <h1>{tab === "profile" ? "Meu Codex" : tab === "clan" ? "Clã" : tab === "deliveries" ? "Central de entregas" : ally ? `Codex de ${ally.nickname}` : "Aliados"}</h1>
+          <h1>{tab === "profile" ? "Meu Codex" : tab === "clan" ? "Clã" : tab === "deliveries" ? "Central de entregas" : tab === "rank" ? "Rank de contribuição" : ally ? `Codex de ${ally.nickname}` : "Aliados"}</h1>
           <p>{tab === "profile"
             ? `Depósito mostra o estoque total. “Preciso” é automático: se a raridade não está no Codex e o depósito está zerado, o sistema marca que você precisa. Se entrar uma cópia ou o Codex for concluído, a necessidade some sozinha. Último salvamento ${timeAgo(me.updatedAt)}.`
             : tab === "clan"
               ? "Visão coletiva de disponíveis, necessidades, entregas confirmadas e administração do clã."
               : tab === "deliveries"
                 ? "Entregue, veja o que pode receber, confirme trocas pendentes e consulte seu histórico em um único lugar."
+                : tab === "rank"
+                  ? "Veja quem mais contribuiu com o clã. Doações somam pontos; recebimentos descontam pontos do saldo."
                 : ally
                   ? `Veja o Codex e os matches nos dois sentidos. ${ally.nickname} atualizou ${timeAgo(ally.updatedAt)}.`
                   : "Abra o Codex de outro membro e veja automaticamente o que vocês podem entregar um ao outro."}</p>
@@ -789,7 +796,7 @@ export default function Home() {
         )}
       </section>
 
-      {tab !== "deliveries" && (
+      {tab !== "deliveries" && tab !== "rank" && (
         <section className="filterbar">
           <label className="searchbox"><span>⌕</span><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="Pesquisar Pokémon ou atributo…" /></label>
           {tab !== "clan" && (
@@ -929,6 +936,10 @@ export default function Home() {
 
           {ally && <aside className="allies-bonus"><CodexBonusPanel groups={ally.groups} /></aside>}
         </div>
+      )}
+
+      {tab === "rank" && (
+        <RankPanel players={players} trades={tradeViews} />
       )}
 
       {tab === "deliveries" && (

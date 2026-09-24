@@ -1,0 +1,206 @@
+.shell {
+  display: grid;
+  gap: 18px;
+  padding: 0 24px 40px;
+}
+
+.intro {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  align-items: end;
+}
+
+.intro > div:first-child {
+  max-width: 760px;
+}
+
+.intro span,
+.intro small {
+  color: var(--muted, #8f9bb3);
+}
+
+.intro h2 {
+  margin: 6px 0 8px;
+}
+
+.intro p {
+  margin: 0;
+  color: var(--muted, #8f9bb3);
+}
+
+.formula {
+  display: grid;
+  gap: 3px;
+  min-width: 280px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  background: rgba(255,255,255,.035);
+}
+
+.rankList {
+  display: grid;
+  gap: 8px;
+}
+
+.rankRow {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 54px 42px minmax(180px, 1fr) repeat(3, minmax(110px, 150px));
+  align-items: center;
+  gap: 12px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,.025);
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rankRow:hover,
+.active {
+  border-color: rgba(104, 164, 255, .45);
+  background: rgba(104, 164, 255, .08);
+}
+
+.position {
+  font-weight: 800;
+  color: #9aa7bd;
+}
+
+.avatar {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,.08);
+  font-weight: 800;
+}
+
+.name,
+.metric,
+.balance {
+  display: grid;
+  gap: 2px;
+}
+
+.name small,
+.metric small,
+.balance small {
+  color: #8f9bb3;
+  font-size: 12px;
+}
+
+.metric b {
+  color: #7ee2ad;
+}
+
+.balance {
+  justify-items: end;
+}
+
+.balance b {
+  font-size: 18px;
+  color: #7ee2ad;
+}
+
+.negative b {
+  color: #ff8d9a;
+}
+
+.profile {
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 16px;
+  padding: 18px;
+  background: rgba(255,255,255,.025);
+}
+
+.profile header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.profile header h3 {
+  margin: 3px 0 0;
+}
+
+.profile header button {
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 10px;
+  background: transparent;
+  color: inherit;
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.rarityGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.rarityGrid article {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 12px;
+  background: rgba(255,255,255,.035);
+}
+
+.rarityGrid span {
+  color: #9aa7bd;
+  font-size: 13px;
+}
+
+.tableWrap {
+  overflow-x: auto;
+}
+
+.tableWrap table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableWrap th,
+.tableWrap td {
+  padding: 10px 8px;
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.tableWrap th {
+  color: #8f9bb3;
+  font-size: 12px;
+}
+
+@media (max-width: 900px) {
+  .intro {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .formula {
+    min-width: 0;
+  }
+
+  .rankRow {
+    grid-template-columns: 42px 38px 1fr;
+  }
+
+  .metric,
+  .balance {
+    grid-column: 3;
+    justify-items: start;
+  }
+
+  .rarityGrid {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}

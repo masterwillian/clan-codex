@@ -216,6 +216,7 @@ function GiveDetails({ me, group, onCreateTrade, onBack }: { me: Player; group: 
     () => group.matches.filter((item) => selected.has(matchKey(item))),
     [group.matches, selected],
   );
+  const allSelected = selectedItems.length === group.matches.length && group.matches.length > 0;
 
   const toggle = (item: MatchItem) => {
     const key = matchKey(item);
@@ -307,6 +308,18 @@ function GiveDetails({ me, group, onCreateTrade, onBack }: { me: Player; group: 
             </article>
           );
         })}
+      </div>
+
+      <div className="delivery-bulk-actions">
+        <span>{selectedItems.length} de {group.matches.length} selecionados</span>
+        <div>
+          <button type="button" className="delivery-copy-button" disabled={allSelected} onClick={() => setSelected(new Set(group.matches.map(matchKey)))}>
+            Selecionar tudo
+          </button>
+          <button type="button" className="delivery-copy-button" disabled={!selectedItems.length} onClick={() => setSelected(new Set())}>
+            Desselecionar tudo
+          </button>
+        </div>
       </div>
 
       <button className="delivery-register" type="button" disabled={!selectedItems.length || busy} onClick={() => void register()}>

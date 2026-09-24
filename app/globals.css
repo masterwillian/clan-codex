@@ -240,3 +240,32 @@ button { color: inherit; }
 /* v5.9 · “Preciso” automático: indicadores são informativos, não clicáveis. */
 .need-check--auto,.bulk-need--auto{cursor:default}
 .need-check--auto input,.bulk-need--auto input{cursor:default}
+
+
+/* Clan Codex v5.10: trade bulk selection */
+.delivery-bulk-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0;
+}
+.delivery-bulk-actions > span {
+  color: var(--muted, #8f9bb3);
+  font-size: 13px;
+}
+.delivery-bulk-actions > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.delivery-bulk-actions button:disabled {
+  opacity: .45;
+  cursor: not-allowed;
+}
+@media (max-width: 680px) {
+  .delivery-bulk-actions {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}

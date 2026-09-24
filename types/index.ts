@@ -85,6 +85,9 @@ export type TradeItemRow = {
   pokemon_id: number;
   rarity: Rarity;
   quantity: number;
+  unit_price: number | null;
+  rarity_multiplier: number | null;
+  rank_points: number | null;
 };
 
 export type MatchItem = {
@@ -105,6 +108,9 @@ export type TradeDisplayItem = {
   rarity: Rarity;
   rarityLabel: string;
   quantity: number;
+  unitPrice: number;
+  rarityMultiplier: number;
+  rankPoints: number;
 };
 
 export type TradeView = TradeRow & {
